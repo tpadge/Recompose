@@ -1,0 +1,49 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>recompose</title>
+  <link rel="stylesheet" href="./stylsheets/styles.css">
+  <link rel="stylesheet" href="./stylsheets//modal.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap"
+    rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class="logo">recompose</div>
+  <div class="stage"></div>
+
+
+  <div class="modal is-open">
+    <form class="modal-form">
+      <span class="modal-close js-modal-close">&times;</span>
+      <h1>Welcome to <span class="modal-logo">recompose</span></h1>
+      <p>Modern classical music is evolving. The great composers of today are reimagining the great compositions of
+        yesterday, taking timeless repetoire to a new, modern setting.</p>
+      <p>Modern technology and recording allows today's composers a greater scope of composition, expanding the texture,
+        instrumentation, and sound of their predecessors.</p>
+      <p>Recompose is made to enhance your listening experience. Select a modern or traditional setting of your favorite
+        work, then use the playback controls to view an audio visualization of each piece. Additionally, view program
+        notes to enhance your understanding of each setting.</p>
+    </form>
+    <div class="modal-screen js-modal-close"></div>
+  </div>
+
+  <script>
+    $(function () {
+      $("body").on("click", ".js-modal-open", function (event) {
+        event.preventDefault();
+        $(".modal").addClass("is-open");
+      });
+      $("body").on("click", ".js-modal-close", function (event) {
+        event.preventDefault();
+        $(".modal").removeClass("is-open");
+      });
+    });
+  </script>
+
+</body>
+
+</html>
