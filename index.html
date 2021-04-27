@@ -4,16 +4,37 @@
   <meta charset="utf-8">
   <title>recompose</title>
   <link rel="stylesheet" href="./stylsheets/styles.css">
+  <link rel="stylesheet" href="./stylsheets/gregsonGigue.css">
   <link rel="stylesheet" href="./stylsheets//modal.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap"
     rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./scripts/audio-display.js"></script>
 </head>
 
 <body>
   <div class="logo">recompose</div>
   <div class="stage"></div>
+
+  <div class="modern">
+    <h1>Recomposed</h1>
+    <button class="modern-button" onClick="showGregsonGigue()">Gregson, 6.6</button>
+  </div>
+
+  <div id="gregson-gigue">
+    <div class="audio-details">
+      <span id="gregson-gigue-close-audio" onClick="stopGregsonGigue()">&times;</span>
+      <audio id="gregsonGigueAudio" controls>
+        <source src="./assets/audio/gregson_6.6.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <h3>Peter Greson, 6.6</h3>
+      <p>Listen for the texture of 5 cellists, rythmic articulation, and a repeating ostinato, slowly building until the
+        climax to the end. If you listen closely, you can hear Gregson's fingers slamming onto the board of his cello,
+        enhancing the rythmic soul of this movement.</p>
+    </div>
+  </div>
 
 
   <div class="modal is-open">
@@ -27,6 +48,7 @@
       <p>Recompose is made to enhance your listening experience. Select a modern or traditional setting of your favorite
         work, then use the playback controls to view an audio visualization of each piece. Additionally, view program
         notes to enhance your understanding of each setting.</p>
+      <p>Select a work from either Composed or Recomposed to get started.</p>
     </form>
     <div class="modal-screen js-modal-close"></div>
   </div>

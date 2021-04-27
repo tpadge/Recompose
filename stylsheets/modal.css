@@ -26,26 +26,26 @@
   padding-left: 30px;
   background: rgba(0, 0, 0, 0.5);
   z-index: 3;
-  color: white;
+  color: #fff7e7;
   border-radius: 4px;
   border: 1px solid #5b2800;
   transition: .15s ease;
 }
 
 .modal-form:hover {
-    border: 1px solid #f9c54a;
+    border: 1px solid #ffca55;
 }
 
 .modal-logo {
   text-decoration: underline;
-  text-decoration-color: #f9c54a;
+  text-decoration-color: #ffca55;
   transition: .15s ease;
 }
 
 .modal-logo:hover {
   color: #5b2800;
   text-decoration: underline;
-  text-decoration-color: white;
+  text-decoration-color: #fff7e7;
 }
 
 .modal-close {
@@ -55,11 +55,11 @@
   font-size: 36px;
   line-height: 1;
   cursor: pointer;
-  color: white;
+  color: #fff7e7;
 }
 
 .modal-close:hover {
-  color: #f9c54a;
+  color: #ffca55;
 }
 
 .modal-form > h1 {
