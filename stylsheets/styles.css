@@ -1,5 +1,5 @@
 body, html {
-  height: 100%;
+  max-height: 100%;
 }
 
 body {
@@ -48,6 +48,7 @@ body {
   position: fixed;
   top: 400px;
   right: 50px;
+  margin-bottom: 0;
   width: 220px;
   height: 300px;
   padding: 10px;
@@ -87,7 +88,7 @@ body {
 }
 
 .modern-button {
-  border: 1px solid #fff7e7;
+  border: 1px solid #5b2800;
   background-color: transparent;
   border-radius: 4px;
   color: #fff7e7;
@@ -96,14 +97,80 @@ body {
   width: 180px;
   height: 46px;
   margin-left:20px;
-
+  margin-bottom: 12px;
+  transition: .15s ease;
 }
 
 .modern-button:hover {
   font-weight: 100;
   background-color: rgba(0, 0, 0, 0.788);
   cursor: pointer;
+  color: #fff7e7;
   border: 1px solid #ffca55;
 }
+
+.traditional {
+  position: fixed;
+  top: 400px;
+  left: 50px;
+  margin-bottom: 0;
+  width: 220px;
+  height: 300px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  color: #fff7e7;
+  border-radius: 4px;
+  border: 1px solid #5b2800;
+  transition: .15s ease;
+}
+
+.traditional:hover {
+    border: 1px solid #ffca55;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.traditional h1 {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 300;
+  color: #fff7e7;
+  text-align: left;
+  margin-left: 20px;
+  text-decoration: underline;
+  text-decoration-color: #5b2800;
+}
+
+.traditional h1:hover {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 300;
+  color: #fff7e7;
+  text-decoration: underline;
+  text-decoration-color: #ffca55;
+}
+
+.traditional-button {
+  border: 1px solid #5b2800;
+  background-color: transparent;
+  border-radius: 4px;
+  color: #fff7e7;
+  font-size: 16px;
+  padding: 4px;
+  width: 180px;
+  height: 46px;
+  margin-left:20px;
+  margin-bottom: 12px;
+  transition: .15s ease;
+}
+
+.traditional-button:hover {
+  font-weight: 100;
+  background-color: rgba(0, 0, 0, 0.788);
+  cursor: pointer;
+  color: #fff7e7;
+  border: 1px solid #ffca55;
+}
+
 
 
