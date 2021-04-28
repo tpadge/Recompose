@@ -43,11 +43,11 @@ badzuraContainer.addEventListener('click', function () {
   window.onunload = function () { audioSource2.disconnect(); };
   audioSource2.connect(analyser2);
   analyser2.connect(audioCtx2.destination);
-  analyser2.fftSize = 64;
+  analyser2.fftSize = 512;
   const bufferLength2 = analyser2.frequencyBinCount;
 
   const dataArray2 = new Uint8Array(bufferLength2);
-  const barWidth2 = badzuraCanvas.width / bufferLength2;
+  const barWidth2 = (badzuraCanvas.width/2) / bufferLength2;
   let barHeight2;
   let x2;
 
@@ -55,15 +55,32 @@ badzuraContainer.addEventListener('click', function () {
     x2 = 0;
     badzuraCtx.clearRect(0, 0, badzuraCanvas.width, badzuraCanvas.height);
     analyser2.getByteFrequencyData(dataArray2);
-    for (let i = 0; i < bufferLength2; i++) {
-      barHeight2 = dataArray2[i];
-      badzuraCtx.fillStyle = 'white';
-      badzuraCtx.fillRect(x2, badzuraCanvas.height - barHeight2, barWidth2, barHeight2);
-      x2 += barWidth2;
-    }
+    drawB(bufferLength2, x2, barWidth2, barHeight2, dataArray2);
     requestAnimationFrame(animatebadzura);
   }
   animatebadzura();
   }
-})
+});
+
+function drawB(bufferLength2, x2, barWidth2, barHeight2, dataArray2) {
+  for (let i = 0; i < bufferLength2; i++) {
+    barHeight2 = dataArray2[i] * 2.5;
+    const red = i * barHeight2/3;
+    const green = i * 10;
+    const blue = barHeight2 / 1.3;
+    badzuraCtx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+    badzuraCtx.fillRect(badzuraCanvas.width/2 - x2, badzuraCanvas.height - barHeight2, barWidth2, barHeight2);
+    x2 += barWidth2;
+  }
+  for (let i = 0; i < bufferLength2; i++) {
+    barHeight2 = dataArray2[i] * 2.5;
+    const red = i * barHeight2 / 3;
+    const green = i * 10;
+    const blue = barHeight2 / 1.3;
+    badzuraCtx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+    badzuraCtx.fillRect(x2, badzuraCanvas.height - barHeight2, barWidth2, barHeight2);
+    x2 += barWidth2;
+  }
+}
+
 
