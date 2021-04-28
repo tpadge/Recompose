@@ -4,7 +4,7 @@ if (!audioCtx3) {
 }
 
 let audio3 = new Audio();
-audio3.src = "../../assets/audio/gregson_1.4.mp3";
+audio3.src = "./assets/audio/gregson_1.4.mp3";
 
 const container3 = document.getElementById('play-gs');
 const clearer3 = document.getElementById('pause-gs');
@@ -17,13 +17,13 @@ let analyser3;
 
 clearer3.addEventListener('click', function () {
   const audio3 = document.getElementById('gregsonSarabandeAudio');
-  audio3.src = "../../assets/audio/gregson_1.4.mp3";
+  audio3.src = "./assets/audio/gregson_1.4.mp3";
   audio3.pause();
 })
 
 function gsPlay() {
   const audio3 = document.getElementById('gregsonSarabandeAudio');
-  audio3.src = "../../assets/audio/gregson_1.4.mp3";
+  audio3.src = "./assets/audio/gregson_1.4.mp3";
   audio3.play();
 }
 

@@ -4,7 +4,7 @@ if (!audioCtx6) {
 }
 
 let audio6 = new Audio();
-audio6.src = "../../assets/audio/bach-bouree.mp3";
+audio6.src = "./assets/audio/bach-bouree.mp3";
 
 const container6 = document.getElementById('play-bb');
 const clearer6 = document.getElementById('pause-bb');
@@ -17,13 +17,13 @@ let analyser6;
 
 clearer6.addEventListener('click', function () {
   const audio6 = document.getElementById('BachBoureeAudio');
-  audio6.src = "../../assets/audio/bach-bouree.mp3";
+  audio6.src = "./assets/audio/bach-bouree.mp3";
   audio6.pause();
 })
 
 function bbPlay() {
   const audio6 = document.getElementById('BachBoureeAudio');
-  audio6.src = "../../assets/audio/bach-bouree.mp3";
+  audio6.src = "./assets/audio/bach-bouree.mp3";
   audio6.play();
 }
 

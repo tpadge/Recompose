@@ -4,7 +4,7 @@ if (!audioCtx) {
 }
 console.log(audioCtx);
 let audio1 = new Audio();
-audio1.src = "../../assets/audio/glass.mp3";
+audio1.src = "./assets/audio/glass.mp3";
 
 const container = document.getElementById('play-glass');
 const clearer = document.getElementById('pause-glass');
@@ -17,13 +17,13 @@ let analyser;
 
 clearer.addEventListener('click', function(){
   const audio1 = document.getElementById('GlassAudio');
-  audio1.src = "../../assets/audio/glass.mp3";
+  audio1.src = "./assets/audio/glass.mp3";
   audio1.pause();
 })
 
 function glassPlay() {
   const audio1 = document.getElementById('GlassAudio');
-  audio1.src = "../../assets/audio/glass.mp3";
+  audio1.src = "./assets/audio/glass.mp3";
   audio1.play();
 }
 

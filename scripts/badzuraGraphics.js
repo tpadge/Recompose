@@ -4,7 +4,7 @@ if(!audioCtx2) {
 }
 
 let audio2 = new Audio();
-audio2.src = "../../assets/audio/badzura.mp3";
+audio2.src = "./assets/audio/badzura.mp3";
 
 const badzuraContainer = document.getElementById('play-badzura');
 const badzuraClearer = document.getElementById('pause-badzura');
@@ -17,13 +17,13 @@ let analyser2;
 
 badzuraClearer.addEventListener('click', function () {
   const audio2 = document.getElementById('BadzuraAudio');
-  audio2.src = "../../assets/audio/badzura.mp3";
+  audio2.src = "./assets/audio/badzura.mp3";
   audio2.pause();
 })
 
 function badzuraPlay(){
   const audio2 = document.getElementById('BadzuraAudio');
-  audio2.src = "../../assets/audio/badzura.mp3";
+  audio2.src = "./assets/audio/badzura.mp3";
   audio2.play();
 }
 

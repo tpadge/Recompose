@@ -4,7 +4,7 @@ if (!audioCtx4) {
 }
 
 let audio4 = new Audio();
-audio4.src = "../../assets/audio/bach-sarabande.mp3";
+audio4.src = "./assets/audio/bach-sarabande.mp3";
 
 const container4 = document.getElementById('play-bs');
 const clearer4 = document.getElementById('pause-bs');
@@ -17,13 +17,13 @@ let analyser4;
 
 clearer4.addEventListener('click', function () {
   const audio4 = document.getElementById('BachSarabandeAudio');
-  audio4.src = "../../assets/audio/bach-sarabande.mp3";
+  audio4.src = "./assets/audio/bach-sarabande.mp3";
   audio4.pause();
 })
 
 function bsPlay() {
   const audio4 = document.getElementById('BachSarabandeAudio');
-  audio4.src = "../../assets/audio/bach-sarabande.mp3";
+  audio4.src = "./assets/audio/bach-sarabande.mp3";
   audio4.play();
 }
 
