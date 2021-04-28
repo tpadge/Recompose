@@ -19,36 +19,59 @@
     rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="./scripts/audio-display.js"></script>
+  <link rel="shortcut icon" href="#">
 </head>
 
 <body>
   <div class="logo">recompose</div>
-  <div class="stage"></div>
-
-  <div class="traditional">
-    <h1>Original</h1>
-    <button class="traditional-button"
-      onClick="showBachGigue(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachBouree(), stopGregsonGigue(), stopBadzura(), stopGregsonBouree(), stopGregsonSarabande()">Bach,
-      6.6</button>
-    <button class="traditional-button"
-      onClick="showBachBouree(), stopGlass(), stopBachSarabande(), stopGregsonBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonSarabande()">Bach,
-      4.5</button>
-    <button class="traditional-button"
-      onClick="showBachSarabande(), stopGlass(), stopGregsonSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonBouree()">Bach,
-      1.4</button>
-    <button class="traditional-button"
-      onClick="showGlass(), stopBadzura(), stopBachSarabande(), stopBachBouree(),stopBachGigue(), stopGregsonGigue(), stopGregsonSarabande(), stopGregsonBouree()">Glass,
-      Etude
-      2</button>
+  <div class="stage">
+    <div id="container">
+      <canvas id="canvas1" style="width: 360px; height: 360px"></canvas>
+      <!-- <canvas id="badzura-canvas" style="width: 360px; height: 360px"></canvas> -->
+    </div>
   </div>
+  <div class="select-boxes">
+    <div class="traditional">
+      <h1>Original</h1>
+      <button class="traditional-button"
+        onClick="showBachGigue(), stopSounds(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachBouree(), stopGregsonGigue(), stopBadzura(), stopGregsonBouree(), stopGregsonSarabande()">Bach,
+        6.6</button>
+      <button class="traditional-button"
+        onClick="showBachBouree(), stopGlass(), stopSounds(), stopBachSarabande(), stopGregsonBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonSarabande()">Bach,
+        4.5</button>
+      <button class="traditional-button"
+        onClick="showBachSarabande(), stopSounds(), stopGlass(), stopGregsonSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonBouree()">Bach,
+        1.4</button>
+      <button class="traditional-button"
+        onClick="showGlass(), stopSounds(), stopBadzura(), stopBachSarabande(), stopBachBouree(),stopBachGigue(), stopGregsonGigue(), stopGregsonSarabande(), stopGregsonBouree()">Glass,
+        Etude
+        2</button>
+    </div>
+    <div class="modern">
+      <h1>Recomposed</h1>
+      <button class="modern-button"
+        onClick="showGregsonGigue(), stopSounds(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonBouree(), stopGregsonSarabande()">Gregson,
+        6.6</button>
+      <button class="modern-button"
+        onClick="showGregsonBouree(), stopSounds(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonSarabande()">Gregson,
+        4.5</button>
+      <button class="modern-button"
+        onClick="showGregsonSarabande(), stopSounds(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonBouree()">Gregson,
+        1.4</button>
+      <button class="modern-button"
+        onClick="showBadzura(), stopSounds(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopGregsonGigue(), stopGregsonSarabande(), stopGregsonBouree()">Badzura,
+        Etude
+        2</button>
+    </div>
+  </div>
+
 
   <div id="bach-gigue">
     <div class="audio-details">
-      <span id="bach-gigue-close-audio" onClick="stopBachGigue()">&times;</span>
-      <audio id="BachGigueAudio" controls>
-        <source src="./assets/audio/bach_6.6.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <span id="bach-gigue-close-audio" onClick="stopBachGigue(), stopSounds()">&times;</span>
+      <audio id="BachGigueAudio"></audio>
+          <button id="play-bg" onClick="bgPlay()">Play</button>
+          <button id="pause-bg">Pause</button>
       <h3>Bach, D Major Gigue</h3>
       <p>Pieter Wispelwey gives an incredible performance of the last movement of Bach's final cello suite. Listen for
         his treatment of the traditional "gigue" dance, landing on key notes and teasing the quicker runs as they
@@ -58,11 +81,10 @@
 
   <div id="bach-bouree">
     <div class="audio-details">
-      <span id="bach-bouree-close-audio" onClick="stopBachBouree()">&times;</span>
-      <audio id="BachBoureeAudio" controls>
-        <source src="./assets/audio/bach-bouree.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <span id="bach-bouree-close-audio" onClick="stopBachBouree(), stopSounds()">&times;</span>
+      <audio id="BachBoureeAudio"></audio>
+          <button id="play-bb" onClick="bbPlay()">Play</button>
+          <button id="pause-bb">Pause</button>
       <h3>Bach, E Flat Major Bouree</h3>
       <p>Listen for the way Wispelwey snaps out the quick five-note passages in this movement. Also take note of his
         control leading the less significant notes towards the significant notes and the opposite. Consider the pacing
@@ -72,11 +94,11 @@
 
   <div id="bach-sarabande">
     <div class="audio-details">
-      <span id="bach-sarabande-close-audio" onClick="stopBachSarabande()">&times;</span>
-      <audio id="BachSarabandeAudio" controls>
-        <source src="./assets/audio/bach-sarabande.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+      <span id="bach-sarabande-close-audio" onClick="stopBachSarabande(), stopSounds()">&times;</span>
+      <audio id="BachSarabandeAudio">
       </audio>
+          <button id="play-bs" onClick="bsPlay()">Play</button>
+          <button id="pause-bs">Pause</button>
       <h3>Bach, G Major Sarabande</h3>
       <p>Listen for the sweetness of Wispelwey's interpretation of Bach. It is not without it's thorns, but this is as
         melodic as it gets in Baroque music. See if you can catch the lingering long tones held beneath certain
@@ -86,11 +108,11 @@
 
   <div id="glass">
     <div class="audio-details">
-      <span id="glass-close-audio" onClick="stopGlass()">&times;</span>
-      <audio id="GlassAudio" controls>
-        <source src="./assets/audio/glass.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+      <span id="glass-close-audio" onClick="stopGlass(), stopSounds()">&times;</span>
+      <audio id="GlassAudio">
       </audio>
+      <button id="play-glass" onClick="glassPlay()">Play</button>
+      <button id="pause-glass">Pause</button>
       <h3>Philip Glass, Etude No. 2</h3>
       <p>One of his greatest and most simple works, Philip Glass' Etude No. 2 for solo piano is as gorgeous as it is
         interesting. Listen for the extreme range in register used on the keyboard and the echoing melodies surrounding
@@ -99,32 +121,12 @@
     </div>
   </div>
 
-
-
-  <div class="modern">
-    <h1>Recomposed</h1>
-    <button class="modern-button"
-      onClick="showGregsonGigue(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonBouree(), stopGregsonSarabande()">Gregson,
-      6.6</button>
-    <button class="modern-button"
-      onClick="showGregsonBouree(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonSarabande()">Gregson,
-      4.5</button>
-    <button class="modern-button"
-      onClick="showGregsonSarabande(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopBadzura(), stopGregsonGigue(), stopGregsonBouree()">Gregson,
-      1.4</button>
-    <button class="modern-button"
-      onClick="showBadzura(), stopGlass(), stopBachSarabande(), stopBachBouree(), stopBachGigue(), stopGregsonGigue(), stopGregsonSarabande(), stopGregsonBouree()">Badzura,
-      Etude
-      2</button>
-  </div>
-
   <div id="badzura-two">
     <div class="audio-details">
-      <span id="badzura-two-close-audio" onClick="stopBadzura()">&times;</span>
-      <audio id="BadzuraAudio" controls>
-        <source src="./assets/audio/badzura.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <span id="badzura-two-close-audio" onClick="stopBadzura(), stopSounds()">&times;</span>
+      <audio id="BadzuraAudio"></audio>
+        <button id="play-badzura" onClick="badzuraPlay()">Play</button>
+        <button id="pause-badzura">Pause</button>
       <h3>Christian Badzura, Glass, Etude No. 2</h3>
       <p>Reworked for string quartet and piano, Vikingur Olaffsson and the Siggi Quartet render Glass' etude to a placid
         lake, ebbing to each change of texture. The composition embelishes on Glass' work enough to produce new melodies
@@ -134,11 +136,10 @@
 
   <div id="gregson-sarabande">
     <div class="audio-details">
-      <span id="gregson-sarabande-close-audio" onClick="stopGregsonSarabande()">&times;</span>
-      <audio id="gregsonSarabandeAudio" controls>
-        <source src="./assets/audio/gregson_1.4.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <span id="gregson-sarabande-close-audio" onClick="stopGregsonSarabande(), stopSounds()">&times;</span>
+      <audio id="gregsonSarabandeAudio"></audio>
+          <button id="play-gs" onClick="gsPlay()">Play</button>
+          <button id="pause-gs">Pause</button>
       <h3>Peter Greson, 1.4 (G Major Sarabnde)</h3>
       <p>Bach's sarabande is set in slow motion, with an instrumentation similar to Beethoven's string quartets, with a
         hovering soprano voice floating above a baritone melody on a bed of warm accompanying chords. Pay attention to
@@ -148,11 +149,10 @@
 
   <div id="gregson-bouree">
     <div class="audio-details">
-      <span id="gregson-bouree-close-audio" onClick="stopGregsonBouree()">&times;</span>
-      <audio id="gregsonBoureeAudio" controls>
-        <source src="./assets/audio/gregson_4.5.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <span id="gregson-bouree-close-audio" onClick="stopGregsonBouree(), stopSounds()">&times;</span>
+      <audio id="gregsonBoureeAudio"></audio>
+          <button id="play-gb" onClick="gbPlay()">Play</button>
+          <button id="pause-gb">Pause</button>
       <h3>Peter Greson, 4.5 (E flat Major Bouree)</h3>
       <p>The dance of Bach's bouree is slowed down to a beautiful, song-like melody. Listen for the slow harmonic
         outline played by
@@ -162,11 +162,10 @@
 
   <div id="gregson-gigue">
     <div class="audio-details">
-      <span id="gregson-gigue-close-audio" onClick="stopGregsonGigue()">&times;</span>
-      <audio id="gregsonGigueAudio" controls>
-        <source src="./assets/audio/gregson_6.6.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <span id="gregson-gigue-close-audio" onClick="stopGregsonGigue(), stopSounds()">&times;</span>
+      <audio id="gregsonGigueAudio"></audio>
+          <button id="play-gg" onClick="ggPlay()">Play</button>
+          <button id="pause-gg">Pause</button>
       <h3>Peter Greson, 6.6 (D Major Gigue)</h3>
       <p>Listen for the texture of 5 cellists, rythmic articulation, and a repeating ostinato, slowly building until the
         climax to the end. If you listen closely, you can hear Gregson's fingers slamming onto the board of his cello,
@@ -203,6 +202,17 @@
       });
     });
   </script>
+
+
+
+  <script src="scripts/glassGraphics.js"></script>
+  <script src="scripts/badzuraGraphics.js"></script>
+  <script src="scripts/gSarabandeGraphics.js"></script>
+  <script src="scripts/bSarabandeGraphics.js"></script>
+  <script src="scripts/gBoureeGraphics.js"></script>
+  <script src="scripts/bBoureeGraphics.js"></script>
+  <script src="scripts/gGigueGraphics.js"></script>
+  <script src="scripts/bGigueGraphics.js"></script>
 
 </body>
 

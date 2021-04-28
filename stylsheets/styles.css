@@ -1,11 +1,20 @@
-body, html {
+html {
   max-height: 100%;
+  margin: 0;
+  background-image: url(../assets/images/liam-mcgarry-ebsrin6WqxQ-unsplash.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 1300px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-image: url(../assets/images/liam-mcgarry-ebsrin6WqxQ-unsplash.jpg);
-  height: 100%;
-  background-position: center;
+  max-height: 100%;
+  width: 100%;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: lato;
@@ -42,12 +51,14 @@ body {
   margin-top: 300px;
   border: 1px solid rgba(0, 0, 0, 0); 
   border-radius: 50%;
+   z-index: -1;
 }
 
 .modern {
   position: fixed;
-  top: 400px;
+  top: 380px;
   right: 50px;
+  margin-top: 0;
   margin-bottom: 0;
   width: 220px;
   height: 300px;
@@ -109,11 +120,16 @@ body {
   border: 1px solid #ffca55;
 }
 
+/* .select-boxes {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+} */
+
 .traditional {
   position: fixed;
-  top: 400px;
+  top: 380px;
   left: 50px;
-  margin-bottom: 0;
   width: 220px;
   height: 300px;
   padding: 10px;
@@ -172,5 +188,13 @@ body {
   border: 1px solid #ffca55;
 }
 
+#canvas1 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 360px;
+}
 
 

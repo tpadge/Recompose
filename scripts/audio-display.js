@@ -5,16 +5,16 @@ function showGregsonGigue() {
   } else {
     gregsonGigue.style.display = "none";
   }
-  var audio = document.getElementById("gregsonGigueAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("gregsonGigueAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopGregsonGigue() {
   var gregsonGigue = document.getElementById("gregson-gigue");
-  var audio = document.getElementById("gregsonGigueAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("gregsonGigueAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (gregsonGigue.style.display === "block") {
     gregsonGigue.style.display = "none";
   }
@@ -27,16 +27,16 @@ function showGregsonBouree() {
   } else {
     gregsonBouree.style.display = "none";
   }
-  var audio = document.getElementById("gregsonBoureeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("gregsonBoureeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopGregsonBouree() {
   var gregsonGigue = document.getElementById("gregson-bouree");
-  var audio = document.getElementById("gregsonBoureeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("gregsonBoureeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (gregsonGigue.style.display === "block") {
     gregsonGigue.style.display = "none";
   }
@@ -49,16 +49,16 @@ function showGregsonSarabande() {
   } else {
     gregsonSarabande.style.display = "none";
   }
-  var audio = document.getElementById("gregsonSarabandeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("gregsonSarabandeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopGregsonSarabande() {
   var gregsonSarabande = document.getElementById("gregson-sarabande");
-  var audio = document.getElementById("gregsonSarabandeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("gregsonSarabandeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (gregsonSarabande.style.display === "block") {
     gregsonSarabande.style.display = "none";
   }
@@ -71,16 +71,16 @@ function showBadzura() {
   } else {
     badzura.style.display = "none";
   }
-  var audio = document.getElementById("BadzuraAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BadzuraAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopBadzura() {
   var badzura = document.getElementById("badzura-two");
-  var audio = document.getElementById("BadzuraAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BadzuraAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (badzura.style.display === "block") {
     badzura.style.display = "none";
   }
@@ -93,16 +93,16 @@ function showBachGigue() {
   } else {
     bachGigue.style.display = "none";
   }
-  var audio = document.getElementById("BachGigueAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BachGigueAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopBachGigue() {
   var bachGigue = document.getElementById("bach-gigue");
-  var audio = document.getElementById("BachGigueAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BachGigueAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (bachGigue.style.display === "block") {
     bachGigue.style.display = "none";
   }
@@ -115,16 +115,16 @@ function showBachBouree() {
   } else {
     bach.style.display = "none";
   }
-  var audio = document.getElementById("BachBoureeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BachBoureeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopBachBouree() {
   var bach = document.getElementById("bach-bouree");
-  var audio = document.getElementById("BachBoureeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BachBoureeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (bach.style.display === "block") {
     bach.style.display = "none";
   }
@@ -137,16 +137,16 @@ function showBachSarabande() {
   } else {
     bach.style.display = "none";
   }
-  var audio = document.getElementById("BachSarabandeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BachSarabandeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopBachSarabande() {
   var bach = document.getElementById("bach-sarabande");
-  var audio = document.getElementById("BachSarabandeAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  // var audio = document.getElementById("BachSarabandeAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (bach.style.display === "block") {
     bach.style.display = "none";
   }
@@ -159,17 +159,26 @@ function showGlass() {
   } else {
     glass.style.display = "none";
   }
-  var audio = document.getElementById("GlassAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  
+  // var audio = document.getElementById("GlassAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
 }
 
 function stopGlass() {
-  var bach = document.getElementById("glass");
-  var audio = document.getElementById("GlassAudio");
-  audio.pause();
-  audio.currentTime = 0;
+  var glass = document.getElementById("glass");
+  // var audio = document.getElementById("GlassAudio");
+  // audio.pause();
+  // audio.currentTime = 0;
   if (glass.style.display === "block") {
     glass.style.display = "none";
   }
 }
+
+ function stopSounds() {
+  var sounds = document.getElementsByTagName('audio');
+  for (i = 0; i < sounds.length; i++) {
+    sounds[i].pause();
+    sounds[i].currentTime = 0;
+  }
+};
