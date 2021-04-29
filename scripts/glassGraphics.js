@@ -53,7 +53,7 @@ container.addEventListener('click', function(){
   }
 
   
-  analyser.fftSize = 64;
+  analyser.fftSize = 128;
   const bufferLength = analyser.frequencyBinCount;
 
   const dataArray = new Uint8Array(bufferLength);
