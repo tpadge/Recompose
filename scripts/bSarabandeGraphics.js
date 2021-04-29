@@ -50,11 +50,11 @@ container4.addEventListener('click', function () {
       analyser4.connect(audioCtx4.destination);
       bsConnected = true;
     }
-    analyser4.fftSize = 64;
+    analyser4.fftSize = 128;
     const bufferLength4 = analyser4.frequencyBinCount;
-
     const dataArray4 = new Uint8Array(bufferLength4);
-    const barWidth4 = canvas4.width / bufferLength4;
+    
+    const barWidth4 = 15;
     let barHeight4;
     let x4;
 
@@ -62,14 +62,23 @@ container4.addEventListener('click', function () {
       x4 = 0;
       bsCtx.clearRect(0, 0, canvas4.width, canvas4.height);
       analyser4.getByteFrequencyData(dataArray4);
-      for (let i = 0; i < bufferLength4; i++) {
-        barHeight4 = dataArray4[i];
-        bsCtx.fillStyle = 'white';
-        bsCtx.fillRect(x4, canvas4.height - barHeight4, barWidth4, barHeight4);
-        x4 += barWidth4;
-      }
+      drawBS(bufferLength4, x4, barWidth4, barHeight4, dataArray4);
       requestAnimationFrame(animateBS);
     }
     animateBS();
   }
-})
+});
+
+function drawBS(bufferLength4, x4, barWidth4, barHeight4, dataArray4){
+  for (let i = 0; i < bufferLength4; i++){
+    barHeight4 = dataArray4[i] * 1.5;
+    bsCtx.save();
+    bsCtx.translate(canvas4.width/2, canvas4.height/2);
+    bsCtx.rotate(i * 3.2);
+    const hue = i * 0.3;
+    bsCtx.fillStyle = 'hsl(' + hue + ',100%' + ',90%)';
+    bsCtx.fillRect(0, 0, barWidth4, barHeight4);
+    x4 += barWidth4;
+    bsCtx.restore();
+  }
+}

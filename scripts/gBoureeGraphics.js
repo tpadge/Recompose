@@ -51,11 +51,11 @@ container5.addEventListener('click', function () {
       gbConnected = true;
     }
 
-    analyser5.fftSize = 64;
+    analyser5.fftSize = 2048;
     const bufferLength5 = analyser5.frequencyBinCount;
 
     const dataArray5 = new Uint8Array(bufferLength5);
-    const barWidth5 = canvas5.width / bufferLength5;
+    const barWidth5 = 7.2;
     let barHeight5;
     let x5;
 
@@ -63,14 +63,23 @@ container5.addEventListener('click', function () {
       x5 = 0;
       gbCtx.clearRect(0, 0, canvas5.width, canvas5.height);
       analyser5.getByteFrequencyData(dataArray5);
-      for (let i = 0; i < bufferLength5; i++) {
-        barHeight5 = dataArray5[i];
-        gbCtx.fillStyle = 'white';
-        gbCtx.fillRect(x5, canvas5.height - barHeight5, barWidth5, barHeight5);
-        x5 += barWidth5;
-      }
+      drawGS(bufferLength5, x5, barWidth5, barHeight5, dataArray5);
       requestAnimationFrame(animateGB);
     }
     animateGB();
   }
-})
+});
+
+function drawGS(bufferLength5, x5, barWidth5, barHeight5, dataArray5) {
+  for (let i = 0; i < bufferLength5; i++) {
+    barHeight5 = dataArray5[i] * 1.4;
+    gbCtx.save();
+    gbCtx.translate(canvas5.width / 2, canvas5.height / 2);
+    gbCtx.rotate(i * 3.16);
+    const hue = i * 4.6;
+    gbCtx.fillStyle = 'hsl(' + hue + ',100%,' + barHeight5 / 4.3 + '%)';
+    gbCtx.fillRect(0, 0, barWidth5, barHeight5);
+    x5 += barWidth5;
+    gbCtx.restore();
+  }
+}
