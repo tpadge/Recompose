@@ -3,7 +3,7 @@ if (!audioCtx6) {
   audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
 }
 
-audioCtx6.resume();
+
 
 let audio6 = new Audio();
 audio6.src = "./assets/audio/bach-bouree.mp3";
@@ -34,7 +34,7 @@ container6.addEventListener('click', function () {
 
   const audio6 = document.getElementById('BachBoureeAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";
-  // audio2.play(0);
+    audioCtx6.resume();
 
   audio6.onplaying = function () {
     if (audioSource6 == undefined) {
