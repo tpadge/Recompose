@@ -5,6 +5,7 @@
 
 let audio4 = new Audio();
 audio4.src = "./assets/audio/bach-sarabande.mp3";
+let bsConnected = false;
 
 const container4 = document.getElementById('play-bs');
 const clearer4 = document.getElementById('pause-bs');
@@ -42,10 +43,13 @@ container4.addEventListener('click', function () {
       audioSource4 = audioCtx4.createMediaElementSource(audio4);
     }
     // audioSource2 = audioCtx2.createMediaElementSource(audio2);
-    analyser4 = audioCtx4.createAnalyser();
-    window.onunload = function () { audioSource4.disconnect(); };
-    audioSource4.connect(analyser4);
-    analyser4.connect(audioCtx4.destination);
+    if (!bsConnected) {
+      analyser4 = audioCtx4.createAnalyser();
+      window.onunload = function () { audioSource4.disconnect(); };
+      audioSource4.connect(analyser4);
+      analyser4.connect(audioCtx4.destination);
+      bsConnected = true;
+    }
     analyser4.fftSize = 64;
     const bufferLength4 = analyser4.frequencyBinCount;
 

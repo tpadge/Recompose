@@ -5,6 +5,7 @@
 
 let audio8 = new Audio();
 audio8.src = "./assets/audio/bach_6.6.mp3";
+let bgConnected = false;
 
 const container8 = document.getElementById('play-bg');
 const clearer8 = document.getElementById('pause-bg');
@@ -42,10 +43,14 @@ container8.addEventListener('click', function () {
       audioSource8 = audioCtx8.createMediaElementSource(audio8);
     }
     // audioSource2 = audioCtx2.createMediaElementSource(audio2);
-    analyser8 = audioCtx8.createAnalyser();
-    window.onunload = function () { audioSource8.disconnect(); };
-    audioSource8.connect(analyser8);
-    analyser8.connect(audioCtx8.destination);
+    if (!bgConnected) {
+      analyser8 = audioCtx8.createAnalyser();
+      window.onunload = function () { audioSource8.disconnect(); };
+      audioSource8.connect(analyser8);
+      analyser8.connect(audioCtx8.destination);
+      bgConnected = true;
+    }
+
     analyser8.fftSize = 64;
     const bufferLength8 = analyser8.frequencyBinCount;
 

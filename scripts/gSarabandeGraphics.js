@@ -5,6 +5,7 @@
 
 let audio3 = new Audio();
 audio3.src = "./assets/audio/gregson_1.4.mp3";
+let gsConnected = false;
 
 const container3 = document.getElementById('play-gs');
 const clearer3 = document.getElementById('pause-gs');
@@ -42,10 +43,14 @@ container3.addEventListener('click', function () {
       audioSource3 = audioCtx3.createMediaElementSource(audio3);
     }
     // audioSource2 = audioCtx2.createMediaElementSource(audio2);
-    analyser3 = audioCtx3.createAnalyser();
-    window.onunload = function () { audioSource3.disconnect(); };
-    audioSource3.connect(analyser3);
-    analyser3.connect(audioCtx3.destination);
+    if (!gsConnected) {  
+      analyser3 = audioCtx3.createAnalyser();
+      window.onunload = function () { audioSource3.disconnect(); };
+      audioSource3.connect(analyser3);
+      analyser3.connect(audioCtx3.destination);
+      gsConnected = true;
+    }
+
     analyser3.fftSize = 64;
     const bufferLength3 = analyser3.frequencyBinCount;
 

@@ -5,6 +5,8 @@
 // console.log(audioCtx);
 let audio1 = new Audio();
 audio1.src = "./assets/audio/glass.mp3";
+let connected = false;
+
 
 const container = document.getElementById('play-glass');
 const clearer = document.getElementById('pause-glass');
@@ -43,9 +45,14 @@ container.addEventListener('click', function(){
       audioSource = audioCtx.createMediaElementSource(audio1);
     }
   // audioSource = audioCtx.createMediaElementSource(audio1);
-  analyser = audioCtx.createAnalyser();
-  audioSource.connect(analyser);
-  analyser.connect(audioCtx.destination);
+  if (!connected) {
+    analyser = audioCtx.createAnalyser();
+    audioSource.connect(analyser);
+    analyser.connect(audioCtx.destination);
+    connected = true;
+  }
+
+  
   analyser.fftSize = 512;
   const bufferLength = analyser.frequencyBinCount;
 

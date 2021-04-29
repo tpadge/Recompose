@@ -5,6 +5,7 @@
 
 let audio7 = new Audio();
 audio7.src = "./assets/audio/gregson_6.6.mp3";
+let ggConnected = false;
 
 const container7 = document.getElementById('play-gg');
 const clearer7 = document.getElementById('pause-gg');
@@ -34,18 +35,25 @@ container7.addEventListener('click', function () {
   }
 
   const audio7 = document.getElementById('gregsonGigueAudio');
-  // audio2.src = "../../assets/audio/badzura.mp3";
-  // audio2.play(0);
+  // if (audioSource7 == undefined) {
+  //   audioSource7 = audioCtx7.createMediaElementSource(audio7);
+  // }
+
+  // const audio7 = document.getElementById('gregsonGigueAudio');
 
   audio7.onplaying = function () {
     if (audioSource7 == undefined) {
       audioSource7 = audioCtx7.createMediaElementSource(audio7);
     }
-    // audioSource2 = audioCtx2.createMediaElementSource(audio2);
-    analyser7 = audioCtx7.createAnalyser();
-    window.onunload = function () { audioSource7.disconnect(); };
-    audioSource7.connect(analyser7);
-    analyser7.connect(audioCtx7.destination);
+     // const audio7 = document.getElementById('gregsonGigueAudio');
+    if (!ggConnected) {
+      analyser7 = audioCtx7.createAnalyser();
+      // window.onunload = function () { audioSource7.disconnect(); };
+      audioSource7.connect(analyser7);
+      analyser7.connect(audioCtx7.destination);
+      ggConnected = true;
+    }
+
     analyser7.fftSize = 64;
     const bufferLength7 = analyser7.frequencyBinCount;
 

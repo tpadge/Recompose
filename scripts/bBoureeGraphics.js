@@ -2,11 +2,9 @@
 // if (!audioCtx6) {
 //   audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
 // }
-
-
-
 let audio6 = new Audio();
 audio6.src = "./assets/audio/bach-bouree.mp3";
+let bbConnected = false;
 
 const container6 = document.getElementById('play-bb');
 const clearer6 = document.getElementById('pause-bb');
@@ -37,17 +35,21 @@ container6.addEventListener('click', function () {
 
   const audio6 = document.getElementById('BachBoureeAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";
-    audioCtx6.resume();
+
 
   audio6.onplaying = function () {
     if (audioSource6 == undefined) {
       audioSource6 = audioCtx6.createMediaElementSource(audio6);
     }
     // audioSource2 = audioCtx2.createMediaElementSource(audio2);
-    analyser6 = audioCtx6.createAnalyser();
-    window.onunload = function () { audioSource6.disconnect(); };
-    audioSource6.connect(analyser6);
-    analyser6.connect(audioCtx6.destination);
+    if (!bbConnected) {
+      analyser6 = audioCtx6.createAnalyser();
+      window.onunload = function () { audioSource6.disconnect(); };
+      audioSource6.connect(analyser6);
+      analyser6.connect(audioCtx6.destination);
+      bbConnected = true;
+    }
+    
     analyser6.fftSize = 64;
     const bufferLength6 = analyser6.frequencyBinCount;
 

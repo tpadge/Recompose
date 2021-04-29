@@ -5,6 +5,7 @@
 
 let audio2 = new Audio();
 audio2.src = "./assets/audio/badzura.mp3";
+let bConnected = false;
 
 const badzuraContainer = document.getElementById('play-badzura');
 const badzuraClearer = document.getElementById('pause-badzura');
@@ -28,24 +29,28 @@ function badzuraPlay(){
 }
 
 badzuraContainer.addEventListener('click', function () {
-  
+  var audioCtx2;
+  if (!audioCtx2) {
+    audioCtx2 = new (window.AudioContext || window.webkitAudioContext)();
+  }
+
   const audio2 = document.getElementById('BadzuraAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";
   // audio2.play(0);
 
   audio2.onplaying = function() {
-    var audioCtx2;
-    if (!audioCtx2) {
-      audioCtx2 = new (window.AudioContext || window.webkitAudioContext)();
-    }
     if (audioSource2 == undefined) {
       audioSource2 = audioCtx2.createMediaElementSource(audio2);
     }
   // audioSource2 = audioCtx2.createMediaElementSource(audio2);
-  analyser2 = audioCtx2.createAnalyser();
-  window.onunload = function () { audioSource2.disconnect(); };
-  audioSource2.connect(analyser2);
-  analyser2.connect(audioCtx2.destination);
+  if (!bConnected) {
+    analyser2 = audioCtx2.createAnalyser();
+    window.onunload = function () { audioSource2.disconnect(); };
+    audioSource2.connect(analyser2);
+    analyser2.connect(audioCtx2.destination);
+    bConnected = true;
+  }
+  
   analyser2.fftSize = 512;
   const bufferLength2 = analyser2.frequencyBinCount;
 
