@@ -1,7 +1,7 @@
-var audioCtx6;
-if (!audioCtx6) {
-  audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
-}
+// var audioCtx6;
+// if (!audioCtx6) {
+//   audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
+// }
 
 
 
@@ -30,7 +30,10 @@ function bbPlay() {
 }
 
 container6.addEventListener('click', function () {
-  // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var audioCtx6;
+  if (!audioCtx6) {
+    audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
+  }
 
   const audio6 = document.getElementById('BachBoureeAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";
