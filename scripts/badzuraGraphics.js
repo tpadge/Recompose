@@ -28,16 +28,16 @@ function badzuraPlay(){
 }
 
 badzuraContainer.addEventListener('click', function () {
-  var audioCtx3;
-  if (!audioCtx3) {
-    audioCtx3 = new (window.AudioContext || window.webkitAudioContext)();
-  }
   
   const audio2 = document.getElementById('BadzuraAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";
   // audio2.play(0);
 
   audio2.onplaying = function() {
+    var audioCtx3;
+    if (!audioCtx3) {
+      audioCtx3 = new (window.AudioContext || window.webkitAudioContext)();
+    }
     if (audioSource2 == undefined) {
       audioSource2 = audioCtx2.createMediaElementSource(audio2);
     }
