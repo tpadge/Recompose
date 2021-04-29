@@ -3,6 +3,8 @@ if (!audioCtx6) {
   audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
 }
 
+audioCtx6.resume();
+
 let audio6 = new Audio();
 audio6.src = "./assets/audio/bach-bouree.mp3";
 
