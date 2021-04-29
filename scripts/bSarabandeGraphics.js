@@ -1,7 +1,7 @@
-var audioCtx4;
-if (!audioCtx4) {
-  audioCtx4 = new (window.AudioContext || window.webkitAudioContext)();
-}
+// var audioCtx4;
+// if (!audioCtx4) {
+//   audioCtx4 = new (window.AudioContext || window.webkitAudioContext)();
+// }
 
 let audio4 = new Audio();
 audio4.src = "./assets/audio/bach-sarabande.mp3";
@@ -28,7 +28,10 @@ function bsPlay() {
 }
 
 container4.addEventListener('click', function () {
-  // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var audioCtx4;
+  if (!audioCtx4) {
+    audioCtx4 = new (window.AudioContext || window.webkitAudioContext)();
+  }
 
   const audio4 = document.getElementById('BachSarabandeAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";

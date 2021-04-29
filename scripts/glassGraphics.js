@@ -1,8 +1,8 @@
-var audioCtx;
-if (!audioCtx) {
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-}
-console.log(audioCtx);
+// var audioCtx;
+// if (!audioCtx) {
+//   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+// }
+// console.log(audioCtx);
 let audio1 = new Audio();
 audio1.src = "./assets/audio/glass.mp3";
 
@@ -28,7 +28,10 @@ function glassPlay() {
 }
 
 container.addEventListener('click', function(){
-  // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var audioCtx;
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
 
   const audio1 = document.getElementById('GlassAudio');
   // audio1.src = "../../assets/audio/glass.mp3";

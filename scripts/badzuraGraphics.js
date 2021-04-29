@@ -1,7 +1,7 @@
-var audioCtx2; 
-if(!audioCtx2) {
-  audioCtx2 = new (window.AudioContext || window.webkitAudioContext)();
-}
+// var audioCtx2; 
+// if(!audioCtx2) {
+//   audioCtx2 = new (window.AudioContext || window.webkitAudioContext)();
+// }
 
 let audio2 = new Audio();
 audio2.src = "./assets/audio/badzura.mp3";
@@ -28,7 +28,10 @@ function badzuraPlay(){
 }
 
 badzuraContainer.addEventListener('click', function () {
-  // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var audioCtx3;
+  if (!audioCtx3) {
+    audioCtx3 = new (window.AudioContext || window.webkitAudioContext)();
+  }
   
   const audio2 = document.getElementById('BadzuraAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";

@@ -1,7 +1,7 @@
-var audioCtx8;
-if (!audioCtx8) {
-  audioCtx8 = new (window.AudioContext || window.webkitAudioContext)();
-}
+// var audioCtx8;
+// if (!audioCtx8) {
+//   audioCtx8 = new (window.AudioContext || window.webkitAudioContext)();
+// }
 
 let audio8 = new Audio();
 audio8.src = "./assets/audio/bach_6.6.mp3";
@@ -28,7 +28,10 @@ function bgPlay() {
 }
 
 container8.addEventListener('click', function () {
-  // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var audioCtx8;
+  if (!audioCtx8) {
+    audioCtx8 = new (window.AudioContext || window.webkitAudioContext)();
+  }
 
   const audio8 = document.getElementById('BachGigueAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";

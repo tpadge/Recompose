@@ -1,7 +1,7 @@
-var audioCtx3;
-if (!audioCtx3) {
-  audioCtx3 = new (window.AudioContext || window.webkitAudioContext)();
-}
+// var audioCtx3;
+// if (!audioCtx3) {
+//   audioCtx3 = new (window.AudioContext || window.webkitAudioContext)();
+// }
 
 let audio3 = new Audio();
 audio3.src = "./assets/audio/gregson_1.4.mp3";
@@ -28,7 +28,10 @@ function gsPlay() {
 }
 
 container3.addEventListener('click', function () {
-  // const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  var audioCtx3;
+  if (!audioCtx3) {
+    audioCtx3 = new (window.AudioContext || window.webkitAudioContext)();
+  }
 
   const audio3 = document.getElementById('gregsonSarabandeAudio');
   // audio2.src = "../../assets/audio/badzura.mp3";
