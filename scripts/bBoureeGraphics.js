@@ -12,6 +12,7 @@ const canvas6 = document.getElementById('canvas1');
 canvas6.width = window.innerWidth;
 canvas6.height = window.innerHeight;
 const bbCtx = canvas6.getContext('2d');
+
 let audioSource6;
 let analyser6;
 
@@ -50,11 +51,11 @@ container6.addEventListener('click', function () {
       bbConnected = true;
     }
     
-    analyser6.fftSize = 64;
+    analyser6.fftSize = 256;
     const bufferLength6 = analyser6.frequencyBinCount;
 
     const dataArray6 = new Uint8Array(bufferLength6);
-    const barWidth6 = canvas6.width / bufferLength6;
+    const barWidth6 = 15;
     let barHeight6;
     let x6;
 
@@ -62,14 +63,27 @@ container6.addEventListener('click', function () {
       x6 = 0;
       bbCtx.clearRect(0, 0, canvas6.width, canvas6.height);
       analyser6.getByteFrequencyData(dataArray6);
-      for (let i = 0; i < bufferLength6; i++) {
-        barHeight6 = dataArray6[i];
-        bbCtx.fillStyle = 'white';
-        bbCtx.fillRect(x6, canvas6.height - barHeight6, barWidth6, barHeight6);
-        x6 += barWidth6;
-      }
+      drawBB(bufferLength6, x6, barWidth6, barHeight6, dataArray6);
       requestAnimationFrame(animateBB);
     }
     animateBB();
   }
-})
+});
+
+function drawBB(bufferLength6, x6, barWidth6, barHeight6, dataArray6){
+for (let i = 0; i < bufferLength6; i++) {
+  barHeight6 = dataArray6[i] * 1.3;
+  bbCtx.save();
+  bbCtx.lineWidth = 5.6;
+  bbCtx.translate(canvas6.width / 2, canvas6.height / 2);
+  bbCtx.rotate(i * 3.2);
+  const hue = i * 0.1;
+  bbCtx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight6 / 3 + '%)';
+  bbCtx.beginPath();
+  bbCtx.moveTo(0, 0);
+  bbCtx.lineTo(0, barHeight6);
+  bbCtx.stroke();
+  x6 += barWidth6;
+  bbCtx.restore();
+}
+}
