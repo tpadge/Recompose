@@ -63,14 +63,14 @@ container5.addEventListener('click', function () {
       x5 = 0;
       gbCtx.clearRect(0, 0, canvas5.width, canvas5.height);
       analyser5.getByteFrequencyData(dataArray5);
-      drawGS(bufferLength5, x5, barWidth5, barHeight5, dataArray5);
+      drawGB(bufferLength5, x5, barWidth5, barHeight5, dataArray5);
       requestAnimationFrame(animateGB);
     }
     animateGB();
   }
 });
 
-function drawGS(bufferLength5, x5, barWidth5, barHeight5, dataArray5) {
+function drawGB(bufferLength5, x5, barWidth5, barHeight5, dataArray5) {
   for (let i = 0; i < bufferLength5; i++) {
     barHeight5 = dataArray5[i] * 1.4;
     gbCtx.save();

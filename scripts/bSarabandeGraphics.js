@@ -50,11 +50,11 @@ container4.addEventListener('click', function () {
       analyser4.connect(audioCtx4.destination);
       bsConnected = true;
     }
-    analyser4.fftSize = 128;
+    analyser4.fftSize = 2048;
     const bufferLength4 = analyser4.frequencyBinCount;
     const dataArray4 = new Uint8Array(bufferLength4);
     
-    const barWidth4 = 15;
+    const barWidth4 = 3;
     let barHeight4;
     let x4;
 
@@ -73,10 +73,26 @@ function drawBS(bufferLength4, x4, barWidth4, barHeight4, dataArray4){
   for (let i = 0; i < bufferLength4; i++){
     barHeight4 = dataArray4[i] * 1.5;
     bsCtx.save();
-    bsCtx.translate(canvas4.width/2, canvas4.height/2);
-    bsCtx.rotate(i * 3.2);
-    const hue = i * 0.3;
-    bsCtx.fillStyle = 'hsl(' + hue + ',100%' + ',90%)';
+    bsCtx.translate(canvas4.width / 2, canvas4.height / 2);
+    bsCtx.rotate(i * 6);
+    const hue = i * 4.6;
+
+    //outline
+    bsCtx.lineWidth = barHeight4 / 4;
+    bsCtx.beginPath();
+    bsCtx.moveTo(0, 0);
+    bsCtx.lineTo(0, barHeight4);
+    bsCtx.stroke();
+
+    //filler
+    bsCtx.lineWidth = barHeight4 / 6;
+    bsCtx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight4 / 4.3 + '%)';
+    bsCtx.beginPath();
+    bsCtx.moveTo(0, 0);
+    bsCtx.lineTo(0, barHeight4);
+    bsCtx.stroke();
+
+    bsCtx.fillStyle = 'hsl(' + hue + ',100%,' + barHeight4 / 4.3 + '%)';
     bsCtx.fillRect(0, 0, barWidth4, barHeight4);
     x4 += barWidth4;
     bsCtx.restore();

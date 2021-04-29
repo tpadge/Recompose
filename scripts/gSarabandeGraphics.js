@@ -51,11 +51,11 @@ container3.addEventListener('click', function () {
       gsConnected = true;
     }
 
-    analyser3.fftSize = 64;
+    analyser3.fftSize = 256;
     const bufferLength3 = analyser3.frequencyBinCount;
 
     const dataArray3 = new Uint8Array(bufferLength3);
-    const barWidth3 = canvas3.width / bufferLength3;
+    const barWidth3 = 7;
     let barHeight3;
     let x3;
 
@@ -63,14 +63,40 @@ container3.addEventListener('click', function () {
       x3 = 0;
       gsCtx.clearRect(0, 0, canvas3.width, canvas3.height);
       analyser3.getByteFrequencyData(dataArray3);
-      for (let i = 0; i < bufferLength3; i++) {
-        barHeight3 = dataArray3[i];
-        gsCtx.fillStyle = 'white';
-        gsCtx.fillRect(x3, canvas3.height - barHeight3, barWidth3, barHeight3);
-        x3 += barWidth3;
-      }
+      drawGS(bufferLength3, x3, barWidth3, barHeight3, dataArray3);
       requestAnimationFrame(animateGS);
     }
     animateGS();
   }
-})
+});
+
+function drawGS(bufferLength3, x3, barWidth3, barHeight3, dataArray3) {
+  for (let i = 0; i < bufferLength3; i++) {
+    barHeight3 = dataArray3[i] * 1.5;
+    gsCtx.save();
+    gsCtx.translate(canvas3.width / 2, canvas3.height / 2);
+    gsCtx.rotate(i * 6);
+    const hue = i * 4.6;
+
+    //outline
+    gsCtx.lineWidth = barHeight3/4;
+    gsCtx.beginPath();
+    gsCtx.moveTo(0, 0);
+    gsCtx.lineTo(0, barHeight3);
+    gsCtx.stroke();
+
+    //filler
+    gsCtx.lineWidth = barHeight3 /6;
+    gsCtx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight3 / 4.3 + '%)';
+    gsCtx.beginPath();
+    gsCtx.moveTo(0, 0);
+    gsCtx.lineTo(0, barHeight3);
+    gsCtx.stroke();
+
+    gsCtx.fillStyle = 'hsl(' + hue + ',100%,' + barHeight3 / 4.3 + '%)';
+    gsCtx.fillRect(0, 0, barWidth3, barHeight3);
+    x3 += barWidth3;
+    gsCtx.restore();
+  }
+
+}
