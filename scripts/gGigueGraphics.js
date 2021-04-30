@@ -54,11 +54,11 @@ container7.addEventListener('click', function () {
       ggConnected = true;
     }
 
-    analyser7.fftSize = 512;
+    analyser7.fftSize = 128;
     const bufferLength7 = analyser7.frequencyBinCount;
 
     const dataArray7 = new Uint8Array(bufferLength7);
-    const barWidth7 = 15;
+    const barWidth7 = (canvas7.width/2) / bufferLength7;
     let barHeight7;
     let x7;
 
@@ -75,14 +75,22 @@ container7.addEventListener('click', function () {
 
 function drawGG(bufferLength7, x7, barWidth7, barHeight7, dataArray7) {
   for (let i = 0; i < bufferLength7; i++) {
-    barHeight7 = dataArray7[i] * 1.5;
-    ggCtx.save();
-    ggCtx.translate(canvas7.width / 2, canvas7.height / 2);
-    ggCtx.rotate(i * 3.2);
-    const hue = i * 0.3;
-    ggCtx.fillStyle = 'hsl(' + hue + ',100%' + ',90%)';
-    ggCtx.fillRect(0, 0, barWidth7, barHeight7);
+    barHeight7 = dataArray7[i] * 2.2;
+    const red = i * barHeight7 / 20;
+    const green = i * 10;
+    const blue = barHeight7 / 2.2;
+    ggCtx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+    ggCtx.fillRect(canvas7.width / 2 - x7, canvas7.height - barHeight7, barWidth7, barHeight7);
     x7 += barWidth7;
-    ggCtx.restore();
+  }
+  for (let i = 0; i < bufferLength7; i++) {
+    barHeight7 = dataArray7[i] * 2.2;
+    const red = i * barHeight7 / 20;
+    const green = i * 10;
+    const blue = barHeight7 / 2.2;
+
+    ggCtx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+    ggCtx.fillRect(x7, canvas7.height - barHeight7, barWidth7, barHeight7);
+    x7 += barWidth7;
   }
 }
