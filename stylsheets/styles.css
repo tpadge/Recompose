@@ -198,4 +198,36 @@ body {
     width: 360px;
 }
 
+.glinks img{
+  position: fixed;
+  top: 12px;
+  right: 30px;
+  height: 30px;
+  width: auto;
+  transition: .15s ease;
+}
 
+.glinks img:hover{
+  position: fixed;
+  top: 12px;
+  right: 32px;
+  height: 32px;
+  width: auto;
+}
+
+.llinks img{
+  position: fixed;
+  top: 12px;
+  right: 64px;
+  height: 30px;
+  width: auto;
+  transition: .15s ease;
+}
+
+.llinks img:hover{
+  position: fixed;
+  top: 12px;
+  right: 64px;
+  height: 32px;
+  width: auto;
+}
