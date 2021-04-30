@@ -77,9 +77,20 @@ function drawGB(bufferLength5, x5, barWidth5, barHeight5, dataArray5) {
     gbCtx.translate(canvas5.width / 2, canvas5.height / 2);
     gbCtx.rotate(i * 3.16);
     const hue = i * 4.6;
+
+    gbCtx.lineWidth = barHeight5 / 20;
+    gbCtx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight5 / 4.3 + '%)';
+    gbCtx.beginPath();
+    gbCtx.moveTo(0, 0);
+    gbCtx.lineTo(0, barHeight5);
+    gbCtx.stroke();
+
     gbCtx.fillStyle = 'hsl(' + hue + ',100%,' + barHeight5 / 4.3 + '%)';
     gbCtx.fillRect(0, 0, barWidth5, barHeight5);
+
     x5 += barWidth5;
     gbCtx.restore();
+
+
   }
 }

@@ -51,11 +51,11 @@ container6.addEventListener('click', function () {
       bbConnected = true;
     }
     
-    analyser6.fftSize = 256;
+    analyser6.fftSize = 2048;
     const bufferLength6 = analyser6.frequencyBinCount;
 
     const dataArray6 = new Uint8Array(bufferLength6);
-    const barWidth6 = 15;
+    const barWidth6 = 7;
     let barHeight6;
     let x6;
 
@@ -74,15 +74,25 @@ function drawBB(bufferLength6, x6, barWidth6, barHeight6, dataArray6){
 for (let i = 0; i < bufferLength6; i++) {
   barHeight6 = dataArray6[i] * 1.3;
   bbCtx.save();
-  bbCtx.lineWidth = 5.6;
   bbCtx.translate(canvas6.width / 2, canvas6.height / 2);
-  bbCtx.rotate(i * 3.2);
-  const hue = i * 0.1;
-  bbCtx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight6 / 3 + '%)';
+  bbCtx.rotate(i * 10);
+  const hue = i * 16; 
+
+  bbCtx.lineWidth = barHeight6 / 8;
   bbCtx.beginPath();
   bbCtx.moveTo(0, 0);
   bbCtx.lineTo(0, barHeight6);
   bbCtx.stroke();
+
+  bbCtx.lineWidth = 12;
+  bbCtx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight6 / 4.3 + '%)';
+  bbCtx.beginPath();
+  bbCtx.moveTo(0, 0);
+  bbCtx.lineTo(0, barHeight6);
+  bbCtx.stroke();
+
+  bbCtx.fillStyle = 'hsl(' + hue + ',100%,' + barHeight6 / 4.3 + '%)';
+  bbCtx.fillRect(0, 0, barWidth6, barHeight6);
   x6 += barWidth6;
   bbCtx.restore();
 }
