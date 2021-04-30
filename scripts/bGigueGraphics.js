@@ -51,11 +51,11 @@ container8.addEventListener('click', function () {
       bgConnected = true;
     }
 
-    analyser8.fftSize = 64;
+    analyser8.fftSize = 2048;
     const bufferLength8 = analyser8.frequencyBinCount;
 
     const dataArray8 = new Uint8Array(bufferLength8);
-    const barWidth8 = canvas8.width / bufferLength8;
+    const barWidth8 = 10;
     let barHeight8;
     let x8;
 
@@ -63,14 +63,41 @@ container8.addEventListener('click', function () {
       x8 = 0;
       bgCtx.clearRect(0, 0, canvas8.width, canvas8.height);
       analyser8.getByteFrequencyData(dataArray8);
-      for (let i = 0; i < bufferLength8; i++) {
-        barHeight8 = dataArray8[i];
-        bgCtx.fillStyle = 'white';
-        bgCtx.fillRect(x8, canvas8.height - barHeight8, barWidth8, barHeight8);
-        x8 += barWidth8;
-      }
+      drawBG(bufferLength8, x8, barWidth8, barHeight8, dataArray8)
       requestAnimationFrame(animateBG);
     }
     animateBG();
   }
-})
+});
+
+function drawBG(bufferLength8, x8, barWidth8, barHeight8, dataArray8) {
+  for (let i = 0; i < bufferLength8; i++) {
+    barHeight8 = dataArray8[i] * 1.6;
+    bgCtx.save();
+    bgCtx.translate(canvas8.width / 2, canvas8.height / 2);
+    bgCtx.rotate(i * 3.16);
+    bgCtx.rotate(Math.PI / 0.8);
+    const hue = i * 6;
+
+    bgCtx.lineWidth = barHeight8 / 20;
+    bgCtx.beginPath();
+    bgCtx.moveTo(0, 0);
+    bgCtx.lineTo(0, barHeight8);
+    bgCtx.stroke();
+
+    bgCtx.lineWidth8 = barHeight8 / 2; //10
+    bgCtx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight8 / 3.4 + '%)';
+    bgCtx.beginPath();
+    bgCtx.moveTo(0, 0);
+    bgCtx.lineTo(0, barHeight8);
+    bgCtx.stroke();
+
+    bgCtx.fillStyle = 'hsl(' + hue + ',100%,' + barHeight8 / 4.3 + '%)';
+    bgCtx.fillRect(0, 0, barWidth8, barHeight8);
+
+    x8 += barWidth8;
+    bgCtx.restore();
+
+
+  }
+}
