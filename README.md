@@ -119,6 +119,7 @@ The Web Audio API was used in conjunction with Canvas API to render the unique v
   
   * Bach: 6 Suites for Solo Cello, Pieter Wispelwey, Cello
   * Philip Glass: Piano Works, Vikingur Olafsson Piano, Siggi Quartet
+  * Bach: The Cello Suites - Recomposed by Peter Gregson
   
   
   
