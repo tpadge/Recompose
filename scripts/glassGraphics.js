@@ -53,7 +53,7 @@ container.addEventListener('click', function(){
   }
 
   
-  analyser.fftSize = 128;
+  analyser.fftSize = 2048;
   const bufferLength = analyser.frequencyBinCount;
 
   const dataArray = new Uint8Array(bufferLength);
@@ -74,22 +74,52 @@ container.addEventListener('click', function(){
 
 function drawGlass(bufferLength, x, barWidth, barHeight, dataArray) {
   for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 2.3;
-    const red = i * barHeight/2;
-    const green = i * 10;
-    const blue = barHeight / 1.3;
-    ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
-    ggCtx.fillRect(canvas.width / 2 - x, canvas.height - barHeight, barWidth, barHeight);
+    barHeight = dataArray[i] * 1.6;
+    ctx.save();
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate(i * 3.16);
+    ctx.rotate(Math.PI / 2.4);
+    const hue = i * 6;
+
+    ctx.lineWidth = barHeight / 10; //10
+    ctx.strokeStyle = 'hsl(' + hue + ',100%,' + barHeight / 3.4 + '%)';
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, barHeight);
+    ctx.stroke();
+
+    ctx.fillStyle = 'hsl(' + hue + ',100%,' + barHeight / 4.3 + '%)';
+    ctx.fillRect(0, 0, barWidth, barHeight);
+    
     x += barWidth;
+    ctx.restore();
+
+
   }
-  for (let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i] * 2.3;
-    const red = i * barHeight/2 ;
-    const green = i * 8;
-    const blue = barHeight / 1.7;
-    ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
-    ggCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-    x += barWidth;
-  }
+
+
+
+
+
+
+
+  // for (let i = 0; i < bufferLength; i++) {
+  //   barHeight = dataArray[i] * 2.3;
+  //   const red = i * barHeight/2;
+  //   const green = i * 10;
+  //   const blue = barHeight / 1.3;
+  //   ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  //   ggCtx.fillRect(canvas.width / 2 - x, canvas.height - barHeight, barWidth, barHeight);
+  //   x += barWidth;
+  // }
+  // for (let i = 0; i < bufferLength; i++) {
+  //   barHeight = dataArray[i] * 2.3;
+  //   const red = i * barHeight/2 ;
+  //   const green = i * 8;
+  //   const blue = barHeight / 1.7;
+  //   ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+  //   ggCtx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+  //   x += barWidth;
+  // }
 }
 
