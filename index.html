@@ -22,10 +22,12 @@
   <link rel="shortcut icon" href="./assets/images/favicon.ico">
 
 
-  <meta name="description" content="Recompose is an audio visualizaton app, inviting users to experience great original works of music and their modern, recomposed counterparts. Each piece of music is accompanied by a bespoke visual, tailored to highlight the excentricities of each work, bringing out unique beauty of each work, so to enhance the user's experience and distinction of both composed and recomposed works of art." />
+  <meta name="description"
+    content="Recompose is an audio visualizaton app, inviting users to experience great original works of music and their modern, recomposed counterparts. Each piece of music is accompanied by a bespoke visual, tailored to highlight the excentricities of each work, bringing out unique beauty of each work, so to enhance the user's experience and distinction of both composed and recomposed works of art." />
   <meta name="title" property="og:title" content="Recompose" />
   <meta property="og:type" content="Website" />
-  <meta name="image" property="og:image" content="http://timpadgett.com/images/116745143-b4a4c400-a9af-11eb-9f9d-b36461f0dd87.png" />
+  <meta name="image" property="og:image"
+    content="http://timpadgett.com/images/116745143-b4a4c400-a9af-11eb-9f9d-b36461f0dd87.png" />
   <meta name="description" property="og:description" content="Recompose App" />
   <meta name="author" content="Tim Padgett" />
 
@@ -86,7 +88,7 @@
       <span id="bach-gigue-close-audio" onClick="stopBachGigue(), stopSounds()">&times;</span>
       <audio id="BachGigueAudio"></audio>
       <button id="play-bg" onClick="bgPlay()">Play</button>
-      <button id="pause-bg">Pause</button>
+      <button id="pause-bg">Stop</button>
       <h3>Bach, D Major Gigue</h3>
       <p>Pieter Wispelwey gives an incredible performance of the last movement of Bach's final cello suite. Listen for
         his treatment of the traditional "gigue" dance, landing on key notes and teasing the quicker runs as they
@@ -99,7 +101,7 @@
       <span id="bach-bouree-close-audio" onClick="stopBachBouree(), stopSounds()">&times;</span>
       <audio id="BachBoureeAudio"></audio>
       <button id="play-bb" onClick="bbPlay()">Play</button>
-      <button id="pause-bb">Pause</button>
+      <button id="pause-bb">Stop</button>
       <h3>Bach, E Flat Major Bouree</h3>
       <p>Listen for the way Wispelwey snaps out the quick five-note passages in this movement. Also take note of his
         control leading the less significant notes towards the significant notes and the opposite. Consider the pacing
@@ -113,7 +115,7 @@
       <audio id="BachSarabandeAudio">
       </audio>
       <button id="play-bs" onClick="bsPlay()">Play</button>
-      <button id="pause-bs">Pause</button>
+      <button id="pause-bs">Stop</button>
       <h3>Bach, G Major Sarabande</h3>
       <p>Listen for the sweetness of Wispelwey's interpretation of Bach. It is not without it's thorns, but this is as
         melodic as it gets in Baroque music. See if you can catch the lingering long tones held beneath certain
@@ -127,7 +129,7 @@
       <audio id="GlassAudio">
       </audio>
       <button id="play-glass" onClick="glassPlay()">Play</button>
-      <button id="pause-glass">Pause</button>
+      <button id="pause-glass">Stop</button>
       <h3>Philip Glass, Etude No. 2</h3>
       <p>One of his greatest and most simple works, Philip Glass' Etude No. 2 for solo piano is as gorgeous as it is
         interesting. Listen for the extreme range in register used on the keyboard and the echoing melodies surrounding
@@ -141,7 +143,7 @@
       <span id="badzura-two-close-audio" onClick="stopBadzura(), stopSounds()">&times;</span>
       <audio id="BadzuraAudio"></audio>
       <button id="play-badzura" onClick="badzuraPlay()">Play</button>
-      <button id="pause-badzura">Pause</button>
+      <button id="pause-badzura">Stop</button>
       <h3>Christian Badzura, Glass, Etude No. 2</h3>
       <p>Reworked for string quartet and piano, Vikingur Olaffsson and the Siggi Quartet render Glass' etude to a placid
         lake, ebbing to each change of texture. The composition embelishes on Glass' work enough to produce new melodies
@@ -154,7 +156,7 @@
       <span id="gregson-sarabande-close-audio" onClick="stopGregsonSarabande(), stopSounds()">&times;</span>
       <audio id="gregsonSarabandeAudio"></audio>
       <button id="play-gs" onClick="gsPlay()">Play</button>
-      <button id="pause-gs">Pause</button>
+      <button id="pause-gs">Stop</button>
       <h3>Peter Gregson, 1.4 (G Major Sarabnde)</h3>
       <p>Bach's sarabande is set in slow motion, with an instrumentation similar to Beethoven's string quartets, with a
         hovering soprano voice floating above a baritone melody on a bed of warm accompanying chords. Pay attention to
@@ -167,7 +169,7 @@
       <span id="gregson-bouree-close-audio" onClick="stopGregsonBouree(), stopSounds()">&times;</span>
       <audio id="gregsonBoureeAudio"></audio>
       <button id="play-gb" onClick="gbPlay()">Play</button>
-      <button id="pause-gb">Pause</button>
+      <button id="pause-gb">Stop</button>
       <h3>Peter Gregson, 4.5 (E flat Major Bouree)</h3>
       <p>The dance of Bach's bouree is slowed down to a beautiful, song-like melody. Listen for the slow harmonic
         outline played by
@@ -180,7 +182,7 @@
       <span id="gregson-gigue-close-audio" onClick="stopGregsonGigue(), stopSounds()">&times;</span>
       <audio id="gregsonGigueAudio"></audio>
       <button id="play-gg" onClick="ggPlay()">Play</button>
-      <button id="pause-gg">Pause</button>
+      <button id="pause-gg">Stop</button>
       <h3>Peter Gregson, 6.6 (D Major Gigue)</h3>
       <p>Listen for the texture of 5 cellists, rythmic articulation, and a repeating ostinato, slowly building until the
         climax to the end. If you listen closely, you can hear Gregson's fingers slamming onto the board of his cello,
@@ -194,15 +196,17 @@
       <span class="modal-close js-modal-close">&times;</span>
       <h1>Welcome to <span class="modal-logo">recompose</span></h1>
       <p>Modern classical music is evolving. The great composers of today are reimagining the great compositions of
-        yesterday, taking timeless repetoire to a new, modern setting.</p>
+        yesterday, taking timeless repertoire to a new, modern setting.</p>
       <p>Modern technology and recording allows today's composers a greater scope of composition, expanding the texture,
-        instrumentation, and sound of their predecessors.</p>
-      <p>Recompose is made to enhance your listening experience. Select a modern or traditional setting of your favorite
-        work, then use the playback controls to view an audio visualization of each piece. Additionally, view program
-        notes to enhance your understanding of each setting.</p>
-      <p>Patience is rewarded. Pausing a song intentionaly resets it to the beginning, experiencing a work from start to
+        instrumentation, and sound of their predecessors, culminating in great recompositions of original works of art.
+      </p>
+      <p>Recompose is made to enhance your listening experience of original and recomposed pieces as symbiotic pairs. On
+        the left of your screen are <span class="gold-modal">original</span> works, on the right are their <span class="gold-modal">recomposed</span> counterparts. Some pairs sound
+        similar, some sound different, but each pair of original and recomposed share the same underlying compositional
+        framework.</p>
+      <p>Patience is rewarded. Stopping a song intentionaly resets it to the beginning, experiencing a work from start to
         end is highly recommended.</p>
-      <p><span class="gold-modal">Make your browser large and double click a work from either Composed or Recomposed to
+      <p><span class="gold-modal">Make your browser large and double click a work from either Original or Recomposed to
           get started.</span></p>
     </form>
     <div class="modal-screen js-modal-close"></div>
@@ -211,6 +215,19 @@
   <script>
     $(function () {
       $("body").on("click", ".js-modal-open", function (event) {
+        event.preventDefault();
+        $(".modal").addClass("is-open");
+      });
+      $("body").on("click", ".js-modal-close", function (event) {
+        event.preventDefault();
+        $(".modal").removeClass("is-open");
+      });
+    });
+  </script>
+
+  <script>
+    $(function () {
+      $(".logo").on("click", function (event) {
         event.preventDefault();
         $(".modal").addClass("is-open");
       });

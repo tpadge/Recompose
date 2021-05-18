@@ -41,6 +41,7 @@ body {
 .logo:hover {
     border: 1px solid #fff7e7;
       text-decoration-color: #5b2800;
+      cursor: pointer;
 }
 
 .stage {
